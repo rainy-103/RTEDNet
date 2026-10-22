@@ -1,33 +1,49 @@
 # RTED-Net
 
-Official code and selected checkpoints for **RTED-Net: Reliability-Guided Temporal Evidence Learning for Multi-Frame Infrared Small Target Detection**.
+Code and selected checkpoints for **RTED-Net: Reliability-Guided Temporal Evidence Learning for Multi-Frame Infrared Small Target Detection**.
 
 RTED-Net segments the center frame of a seven-frame grayscale infrared sequence. It uses ordered temporal cues, a spatial reliability estimator, reliability-guided fusion, frequency-aware temporal memory, and bounded recovery and suppression of the coarse prediction.
 
-## Contents
+## Authors and Contributors
+
+This code was implemented by:
+
+- Dr. Wenjun Zhou (Email: zhouwenjun@swpu.edu.cn)
+- Mr. Zhao
+
+From the Image Processing and Parallel Computing Laboratory, School of Computer Science, Southwest Petroleum University.
+
+## Usage Notice
+
+You may use and adapt this code under the [MIT License](LICENSE). If you use RTED-Net in a publication, please cite the accompanying paper when its bibliographic details are available.
+
+## Repository Layout
 
 | Path | Description |
 | --- | --- |
-| `model.py` | RTED-Net implementation (`TFGNetV101` class name retained for checkpoint compatibility) |
+| `model/RTEDNet/network.py` | RTED-Net model implementation |
+| `model/RTEDNet/__init__.py` | Public `RTEDNet` alias and checkpoint-compatible `TFGNetV101` name |
 | `datasets.py` | NUDT-MIRSDT and generic sequence loaders |
 | `train.py` | Training and validation |
 | `evaluate.py` | Segmentation and detection metrics |
 | `weights/` | Selected NUDT-MIRSDT and IRDST checkpoints |
 | `scripts/` | Example training and evaluation commands |
 
-The repository does not redistribute the datasets. Download them from their respective dataset providers and follow their terms of use. The model weights are provided as research artifacts; dataset and third-party software licenses remain with their original owners.
+The repository does not redistribute the datasets. The model weights are provided as research artifacts; dataset and third-party software licenses remain with their original owners.
 
-## Setup
+## Dependencies
 
-Python 3.10 or newer is recommended. Install a PyTorch build suitable for your CUDA setup from the [official PyTorch instructions](https://pytorch.org/get-started/locally/), then install the remaining dependencies:
+RTED-Net uses PyTorch and the packages listed in [`requirements.txt`](requirements.txt). Python 3.10 or newer is recommended. Install a PyTorch build suitable for your CUDA setup from the [PyTorch installation guide](https://pytorch.org/get-started/locally/), then install the remaining dependencies:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-The local smoke test used Python 3.13.5 and PyTorch 2.11 CPU. Training commands below assume a CUDA GPU.
+The local smoke test used Python 3.13.5 and PyTorch 2.11 CPU. Training commands below assume a CUDA GPU. The training and evaluation scripts in this repository run directly from its root directory.
 
-## Data layout
+## Datasets
+
+The experiments use [NUDT-MIRSDT](https://github.com/TinaLRJ/Multi-frame-infrared-small-target-detection-DTUM) and [IRDST](https://github.com/sun11999/RDIAN). Obtain each dataset from its provider and follow its terms of use.
 
 For NUDT-MIRSDT, the loader expects this layout and split files supplied with the dataset:
 
@@ -93,6 +109,10 @@ Load only checkpoints from trusted sources, as PyTorch checkpoint formats may co
 ## Citation
 
 The accompanying manuscript is **RTED-Net: Reliability-Guided Temporal Evidence Learning for Multi-Frame Infrared Small Target Detection**. A formal citation will be added when publication metadata is available.
+
+## Acknowledgement
+
+The shallow appearance branch adapts the contrast vector operator described in [DBCE-U-Net](https://github.com/aki115/DBCE-U-Net). We thank its authors for making their work available.
 
 ## License
 
