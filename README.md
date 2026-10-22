@@ -47,7 +47,7 @@ The generic sequence loader used for IRDST expects sequence directories containi
 
 ## Evaluation
 
-Set `DATA_ROOT` to the extracted dataset directory. For example:
+Point `--data-root` to the extracted dataset directory. For example:
 
 ```bash
 python evaluate.py \
@@ -79,7 +79,7 @@ python train.py \
   --batch-size 1 --val-batch-size 1
 ```
 
-The scripts reproduce saved experiment configurations and may initialize from a supplied checkpoint. Adjust paths, batch size, workers, and precision for your hardware. Datasets and full training runs are needed to verify the paper's reported numbers; the included smoke test checks code execution only.
+The scripts record experiment configurations and may initialize from a supplied checkpoint. Adjust paths, batch size, workers, and precision for your hardware. Datasets and full training runs are needed to verify the paper's reported numbers; a local smoke test checked code execution only.
 
 ## Checkpoints
 
