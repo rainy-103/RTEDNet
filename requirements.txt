@@ -1,0 +1,6 @@
+torch>=2.1
+numpy>=1.23
+Pillow>=9.0
+tqdm>=4.66
+scipy>=1.10
+matplotlib>=3.7

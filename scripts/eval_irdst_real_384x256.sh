@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python evaluate.py --data-root /path/to/IRDST_real --val-split /path/to/IRDST_real/test.txt --checkpoint weights/irdst_v101_7f_384x256_real_best.pt --output-dir runs/eval_irdst_real_v101_7f_384x256 --image-dir-name images --mask-dir-name masks --num-frames 7 --base-channels 24 --input-size 384x256 --allow-resize-larger --threshold 0.5 --thresholds demnet --match-radius 3 --batch-size 4 --num-workers 4 --device cuda --amp --amp-dtype bfloat16

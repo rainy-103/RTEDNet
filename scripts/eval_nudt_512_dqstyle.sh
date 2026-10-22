@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python evaluate.py --data-root /path/to/NUDT-MIRSDT --val-split /path/to/NUDT-MIRSDT/test.txt --checkpoint weights/nudt_v101_7f_native_best.pt --output-dir runs/eval_nudt_v101_512_dqstyle --image-dir-name images --mask-dir-name masks --num-frames 7 --base-channels 24 --input-size 512x512 --threshold 0.5 --thresholds demnet --match-radius 3 --low-snr-sequences 47,56,59,76,92,101,105,119 --high-snr-sequences 85,86,87,88,89,90,91,93,94,95,96,97 --batch-size 1 --num-workers 4 --device cuda --amp --amp-dtype bfloat16
